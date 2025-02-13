@@ -15,8 +15,8 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
             <figure className=" flex flex-col items-center p-6 mt-5 w-full h-[70vh] bg-[url('/images/bg.png')] bg-no-repeat bg-contain bg-center">
               <main className="lg:mt-5 md:mt-5 -mt-2 flex flex-col items-center border-[#0E464F] p-1 md:p-5 lg:p-5 border-2 max-w-[280px] rounded-2xl">
                 <h1 className="lg:text-2xl md:text-xl text-[20px] font-bold">Techember Fest "25</h1>
-                <span className="lg:text-xl md:text-[15px] text-[14px]">📍04 Rumens road, Ikoyi, Lagos</span>
-                <span className="lg:text-xl md:text-[15px] text-[15px]">📅 March 15, 2005 || 7:00PM</span>
+                <span className="lg:text-[16px] md:text-[15px] text-[14px]">📍04 Rumens road, Ikoyi, Lagos</span>
+                <span className="lg:text-[16px] md:text-[15px] text-[15px]">📅 March 15, 2005 || 7:00PM</span>
 
                 {ticketData.image && (
                   <img
@@ -26,7 +26,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                   />
                 )}
 
-                <div className="lg:mt-15 md:mt-12 mt-5 flex flex-col p-1 rounded-[8px] border lg:w-[224px] w-[200px] border-[#133D44] bg-[#08343C] ">
+                <div className="lg:mt-10 md:mt-12 mt-5 flex flex-col p-1 rounded-[8px] border lg:w-[224px] w-[200px] border-[#133D44] bg-[#08343C] ">
                   <div className="flex gap-x-2 border-b border-[#12464E] w-full">
                     <div className=" border-r border-[#12464E] w-[100px] p-1 flex flex-col gap-y-1 ">
                       <label className="text-white/30 font-roboto text-[10px] leading-[15px] ">
