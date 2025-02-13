@@ -36,7 +36,7 @@ export default function StageNavigator() {
 
   if (showIntro) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-red-500 text-white text-2xl font-bold">
+      <div className="flex items-center justify-center min-h-screen bg-[#0E464F] text-white text-2xl font-bold">
         Book Your Ticket Now !!!
       </div>
     );

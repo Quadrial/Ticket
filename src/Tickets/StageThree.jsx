@@ -11,6 +11,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
             <h1 className="text-2xl text-center">Your Ticket is Booked</h1>
             <p className="text-md text-center">You can download or check your email for a copy</p>
 
+              {/* Ticket design */}
             <figure className=" flex flex-col items-center p-6 mt-5 w-full h-[70vh] bg-[url('/images/bg.png')] bg-no-repeat bg-contain bg-center">
               <main className="lg:mt-5 md:mt-5 -mt-2 flex flex-col items-center border-[#0E464F] p-1 md:p-5 lg:p-5 border-2 max-w-[280px] rounded-2xl">
                 <h1 className="lg:text-2xl md:text-xl text-[20px] font-bold">Techember Fest "25</h1>
@@ -25,7 +26,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                   />
                 )}
 
-                <div className="lg:mt-15 md:mt-12 flex flex-col p-1 rounded-[8px] border lg:w-[224px] w-[200px] border-[#133D44] bg-[#08343C] ">
+                <div className="lg:mt-15 md:mt-12 mt-5 flex flex-col p-1 rounded-[8px] border lg:w-[224px] w-[200px] border-[#133D44] bg-[#08343C] ">
                   <div className="flex gap-x-2 border-b border-[#12464E] w-full">
                     <div className=" border-r border-[#12464E] w-[100px] p-1 flex flex-col gap-y-1 ">
                       <label className="text-white/30 font-roboto text-[10px] leading-[15px] ">
@@ -75,7 +76,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                   </div>
                 </div>
               </main>
-              <div className="flex flex-col l:mt-[60px] md:mt-[60px] mt-5 flex items-center">
+              <div className="flex flex-col l:mt-[60px] md:mt-[60px] mt-[40px] flex items-center">
                 <img src="images/Bar Code.png" alt="" className="lg:w-full md:w-full w-[80%]" />
               </div>
             </figure>
