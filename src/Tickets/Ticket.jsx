@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 
-const Ticket = ({ nextStage, stage, totalStages }) => {
+const Ticket = ({
+  nextStage,
+  selectedTicket,
+  setSelectedTicket,
+  selectedCount,
+  setSelectedCount,
+  stage,
+  totalStages,
+}) => {
   const ticketTypes = [
     { name: "REGULAR ACCESS", price: "FREE" },
     { name: "VIP ACCESS", price: "$150" },
     { name: "VVIP ACCESS", price: "$50" },
   ];
 
-  const ticketCounts = [1, 2, 3, 4];
+  const ticketCounts = Array.from({ length: 20 }, (_, i) => i + 1);
 
   // Load from localStorage or set default values
-  const [selectedTicket, setSelectedTicket] = useState(
-    localStorage.getItem("selectedTicket") || ""
-  );
-  const [selectedCount, setSelectedCount] = useState(
-    localStorage.getItem("selectedCount") || "1"
-  );
-
   useEffect(() => {
     localStorage.setItem("selectedTicket", selectedTicket);
     localStorage.setItem("selectedCount", selectedCount);
   }, [selectedTicket, selectedCount]);
-
   return (
     <div>
       <Header />
@@ -73,7 +73,7 @@ const Ticket = ({ nextStage, stage, totalStages }) => {
                       onClick={() => setSelectedTicket(ticket.name)}
                       className={`flex flex-row justify-between text-start border-[#0E464F] border-2 rounded-xl p-2 ${
                         selectedTicket === ticket.name
-                          ? "bg-red-500"
+                          ? "bg-[#24A0B5]"
                           : "hover:bg-[#24A0B5]"
                       }`}
                     >
@@ -96,9 +96,23 @@ const Ticket = ({ nextStage, stage, totalStages }) => {
                   value={selectedCount}
                   onChange={(e) => setSelectedCount(e.target.value)}
                   className="border-[#0E464F] border-2 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto rounded-xl mx-auto my-2 p-2"
+                  onMouseOver={(e) => {
+                    Array.from(e.target.options).forEach((option) => {
+                      option.style.color = "black";
+                    });
+                  }}
+                  onMouseOut={(e) => {
+                    Array.from(e.target.options).forEach((option) => {
+                      option.style.color = "transparent";
+                    });
+                  }}
                 >
                   {ticketCounts.map((count) => (
-                    <option key={count} value={count}>
+                    <option
+                      key={count}
+                      value={count}
+                      style={{ color: "transparent" }}
+                    >
                       {count}
                     </option>
                   ))}

@@ -7,6 +7,7 @@ export default function StageNavigator() {
   const [stage, setStage] = useState(1);
   const totalStages = 3;
   const [showIntro, setShowIntro] = useState(true);
+ 
 
   // State for storing ticket selection
   const [ticketData, setTicketData] = useState({
