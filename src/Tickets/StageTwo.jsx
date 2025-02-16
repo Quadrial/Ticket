@@ -38,7 +38,7 @@ const Ticket = ({ nextStage, stage, totalStages, prevStage, ticketData, setTicke
         <main className="border-[#0E464F] border-4 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto rounded-2xl mx-auto my-10 p-5 shadow-lg">
           <div className="flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between">
             <p className="text-2xl">Attendee Details</p>
-            <p>Step {stage}/{totalStages}</p>
+            <p>Step 2/3</p>
           </div>
           <div className="w-full bg-gray-300 h-2 rounded-full mt-2">
             <div className="h-2 bg-blue-500 rounded-full transition-all duration-500" style={{ width: `${(stage / totalStages) * 100}%` }}></div>

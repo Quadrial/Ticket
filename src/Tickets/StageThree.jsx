@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
+import html2canvas from "html2canvas";
 import Header from "../Header/Header";
 
 const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
+  const ticketRef = useRef(null);
+
+  const downloadTicket = async () => {
+    if (!ticketRef.current) return;
+
+    const canvas = await html2canvas(ticketRef.current, {
+      backgroundColor: null,
+    });
+    const image = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "ticket.png";
+    link.click();
+  };
+
   return (
     <>
       <div>
@@ -9,14 +26,25 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
         <section className="px-5 text-white flex flex-col  min-h-screen">
           <main className="border-[#0E464F] border-4 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto rounded-2xl mx-auto my-10 p-7 shadow-lg">
             <h1 className="text-2xl text-center">Your Ticket is Booked</h1>
-            <p className="text-md text-center">You can download or check your email for a copy</p>
+            <p className="text-md text-center">
+              You can download or check your email for a copy
+            </p>
 
-              {/* Ticket design */}
-            <figure className=" flex flex-col items-center p-6 mt-5 w-full h-[70vh] bg-[url('/images/bg.png')] bg-no-repeat bg-contain bg-center">
+            {/* Ticket design */}
+            <figure
+              ref={ticketRef}
+              className=" flex flex-col items-center p-6 mt-5 w-full h-[70vh] bg-[url('/images/bg.png')] bg-no-repeat bg-contain bg-center"
+            >
               <main className="lg:mt-5 md:mt-5 -mt-2 flex flex-col items-center border-[#0E464F] p-1 md:p-5 lg:p-5 border-2 max-w-[280px] rounded-2xl">
-                <h1 className="lg:text-2xl md:text-xl text-[20px] font-bold">Techember Fest "25</h1>
-                <span className="lg:text-[16px] md:text-[15px] text-[14px]">📍04 Rumens road, Ikoyi, Lagos</span>
-                <span className="lg:text-[16px] md:text-[15px] text-[15px]">📅 March 15, 2005 || 7:00PM</span>
+                <h1 className="lg:text-2xl md:text-xl text-[20px] font-bold">
+                  Techember Fest "25
+                </h1>
+                <span className="lg:text-[16px] md:text-[15px] text-[14px]">
+                  📍04 Rumens road, Ikoyi, Lagos
+                </span>
+                <span className="lg:text-[16px] md:text-[15px] text-[15px]">
+                  📅 March 15, 2005 || 7:00PM
+                </span>
 
                 {ticketData.image && (
                   <img
@@ -51,7 +79,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                         Ticket Type:
                       </label>
                       <p className="font-roboto text-[12px] font-bold leading-[18px] text-white">
-                      {selectedTicket}
+                        {selectedTicket}
                       </p>
                     </div>
                     <div className="flex flex-col p-1 gap-y-1 w-[100px]">
@@ -59,7 +87,7 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                         Ticket for :
                       </label>
                       <p className="font-roboto text-[12px] font-bold leading-[18px] text-white">
-                      {selectedCount}
+                        {selectedCount}
                       </p>
                     </div>
                   </div>
@@ -77,7 +105,11 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
                 </div>
               </main>
               <div className="flex flex-col l:mt-[60px] md:mt-[60px] mt-[40px] flex items-center">
-                <img src="images/Bar Code.png" alt="" className="lg:w-full md:w-full w-[80%]" />
+                <img
+                  src="images/Bar Code.png"
+                  alt=""
+                  className="lg:w-full md:w-full w-[80%]"
+                />
               </div>
             </figure>
 
@@ -88,7 +120,10 @@ const Ticket = ({ prevStage, ticketData, selectedTicket, selectedCount }) => {
               >
                 Book Another Ticket
               </button>
-              <button className="border-[#0E464F] bg-[#24A0B5] border-2 p-3 rounded-xl w-full">
+              <button
+                onClick={downloadTicket}
+                className="border-[#0E464F] bg-[#24A0B5] border-2 p-3 rounded-xl w-full"
+              >
                 Download Ticket
               </button>
             </main>

@@ -32,7 +32,7 @@ const Ticket = ({
           <div className="flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between">
             <p className="text-2xl">Ticket Selection</p>
             <p>
-              Step {stage}/{totalStages}
+              Step 1/3
             </p>
           </div>
 
